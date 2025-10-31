@@ -1,3 +1,3 @@
-React harjoitus osa 1 tehty.
+Tehtävät tehtyinä:
 
-"Todo (part 1 - Creating basic app structure)"
+1, 2.
