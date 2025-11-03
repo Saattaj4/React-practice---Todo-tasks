@@ -29,13 +29,12 @@ app.get('/', (req, res) => {
 
 // POST
 app.post('/create', (req, res) => {
- const pool = openDb()
  const { task } = req.body
  if (!task) {
  return res.status(400).json({error: 'Task is required'})
  }
- pool.query('insert into task (description) values ($1) returning *', [task.description],
- (err, result) => {
+  pool.query('insert into task (description) values ($1) returning *', [task.description],
+  (err, result) => {
  if (err) {
  return res.status(500).json({error: err.message})
  }
@@ -46,9 +45,8 @@ app.post('/create', (req, res) => {
 
 // DELETE
 app.delete('/delete/:id', (req, res) => {
- const pool = openDb()
  const { id } = req.params
- console.log(`Deleting task with id: ${id}`)
+  console.log(`Deleting task with id: ${id}`)
  pool.query('delete from task WHERE id = $1',
  [id], (err, result) => {
  if (err) {
